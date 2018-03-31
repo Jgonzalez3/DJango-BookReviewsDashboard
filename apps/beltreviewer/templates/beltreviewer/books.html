@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'beltreviewer/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="leftcontainer">
+            <h2>Welcome, {{request.session.firstname}}!</h2><br>
+            <div class="recentbookreviews">
+                <h3> Recent Book Reviews:</h3>
+                {% for review in reviews reversed %}
+                <h4><a href="/books/{{review.book.id}}">{{ review.book.title }}</a></h4>
+                <p>Rating: {{ review.rating }}</p>
+                <p><a href="/users/{{ review.user.id }}">{{ review.user.first_name }}</a> says: {{ review.desc }}</p>
+                <p>Posted on {{ review.created_at }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="rightcontainer">
+            <p class="toppagelinks"><a href="/books/add">Add Book and Review</a><span></span><a href="/">Logout</a>
+            </p><br><br>
+            <h3>Other Books with Reviews:</h3>
+            <div class="reviewedbooks">
+                {% for book in reviewedbooks %}
+                    <p><a href="books/{{book.book__id}}">{{ book.book__title }}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

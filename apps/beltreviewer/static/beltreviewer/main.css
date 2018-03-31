@@ -1,0 +1,29 @@
+
+.wrapper{
+    margin: 0 auto;
+
+}
+
+.rightcontainer, .leftcontainer{
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+}
+
+.reviewedbooks{
+    border: solid black 2pt;
+    overflow-y: scroll;
+    display: inline-block;
+    width: 250px;
+    height: 150px;
+    margin-left: 30px; 
+}
+p{
+    padding-left: 15px;
+}
+.toppagelinks{
+    text-align: right;
+}
+span{
+    margin-left: 25px;
+}
